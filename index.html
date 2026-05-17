@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>株式会社アクアプラス</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Helvetica Neue",sans-serif;
+    background:#ffffff;
+    color:#1f2933;
+    line-height:1.8;
+}
+
+a{
+    text-decoration:none;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:72px;
+    padding:0 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    border-bottom:1px solid #e7eef2;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+    letter-spacing:4px;
+    color:#2a8fb3;
+}
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
+nav a{
+    color:#324550;
+    font-size:14px;
+}
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    padding:0 8%;
+}
+
+.hero video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    top:0;
+    left:0;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.75),
+        rgba(255,255,255,0.2)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+}
+
+.small{
+    color:#2a8fb3;
+    letter-spacing:3px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:72px;
+    line-height:1.2;
+    margin-bottom:30px;
+    color:#143544;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:40px;
+    color:#4d616d;
+}
+
+section{
+    padding:110px 8%;
+}
+
+.section-title{
+    font-size:48px;
+    margin-bottom:40px;
+    color:#143544;
+}
+
+/* ===== 縦並びカード ===== */
+
+.cards{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+.card{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    background:#fff;
+    padding:30px;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card img{
+    width:500px;
+    height:320px;
+    object-fit:cover;
+    border-radius:22px;
+    flex-shrink:0;
+}
+
+.card-content{
+    flex:1;
+}
+
+.card h3{
+    font-size:32px;
+    margin-bottom:14px;
+    color:#2a8fb3;
+}
+
+.card p{
+    font-size:18px;
+    color:#5a6c76;
+}
+
+.light{
+    background:#f6fbfd;
+}
+
+.two-column{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+}
+
+.box{
+    background:#fff;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.05);
+}
+
+.box img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:18px;
+}
+
+footer{
+    background:#102a37;
+    color:#cbd7dc;
+    text-align:center;
+    padding:30px;
+    font-size:13px;
+}
+
+/* ===== スマホ対応 ===== */
+
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .card img{
+        width:100%;
+        height:220px;
+    }
+
+    .two-column{
+        grid-template-columns:1fr;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+<img src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/aqa1.png" alt="ロゴ" style="height:126px; margin-top:8px;">
+</div>
+
+    <nav>
+        <a href="#strength">強み</a>
+        <a href="#ceramic">セラミック</a>
+        <a href="#contact">お問い合わせ</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <video autoplay muted loop playsinline>
+        <source src="movie.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="small">DENTAL LABORATORY</div>
+
+        <h1>
+            美しさと機能性を、<br>
+            その先の信頼へ。
+        </h1>
+
+        <p>
+            株式会社アクアプラスは、セラミック技工を通じて<br>
+            医院様と患者様の満足度向上を支える歯科技工所です。
+        </p>
+
+    </div>
+
+</section>
+
+<section id="strength">
+
+    <div class="small">OUR STRENGTH</div>
+    <h2 class="section-title">アクアプラスの強み</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTViZTg2MTM4ODE5MTk1M2Q0MWVlYTQ0MzY4OWQ6ZmlsZV8wMDAwMDAwMDg3YTg3MjA2ODMxNDlhZmI3MGMwOTViMyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImIxZWE2MzVhNzBhYWI2NjUwNGM5NDc3Y2M0ZGEyODE2YzYyNzY1YTZlZGRkYjAyOTQzM2QyMzhhMGI0Mjg0MDAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>審美性</h3>
+                <p>
+                    自然な透明感と色調再現にこだわったセラミック技工。
+                    患者様の満足度向上を目指し、細部まで丁寧に製作します。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTVkZmY3ZDA4ODE5MThmNWE3NzBlZDE2MzYxMzk6ZmlsZV8wMDAwMDAwMDczMTQ3MjA5OWMwNjc1ZjA1YWU5MTdhYyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjhiOTQyOTY1M2M5ZDFhNWI5NmE2Y2Y5Y2EyNDJiZDk4MGU0YjI0NzY0N2VlNzc4NzIyZGY3MmYzMmFkNTI2ZTgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>適合性</h3>
+                <p>
+                    精密な適合を重視し、長期安定を目指します。
+                    医院様の診療効率にも配慮した品質を提供します。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTU4YzI2Njk0ODE5MTlkZjNkMTZkMDRiOTEyOTU6ZmlsZV8wMDAwMDAwMDBlNDg3MjA2YjI5MmJiOWM4NjhlNTdjNSIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6Ijk0OTMxNDdlZDczNTY3MDM2Y2M1YzQxNmEyOGI0ZjhkNWRhMWI3NDNlYTRlZDBlN2EzZTEwOGUxMmE1MTEyZGIiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>耐久性</h3>
+                <p>
+                    症例ごとに最適な素材選択をご提案。
+                    長期間安心して使用できる技工物を追求します。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTVlOWJhYTg4ODE5MWI5YTFiYjMxNzRkMTQ0YjQ6ZmlsZV8wMDAwMDAwMDlhMmM3MjA5YTlkZmUxMGVlYTViMGEwOSIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImFkYzM4MmQ1ZWM3N2M1YmNhZjcwMDRhMGIzMmJjNTAwMWM2ZTM3YzViYWRmM2ZlMjQ3ZmU0YmM2ZTBiNjU4NmQiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>対応力</h3>
+                <p>
+                    「合うまで修正する」柔軟なサポート体制。
+                    医院様との連携を大切に迅速対応いたします。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="ceramic" class="light">
+
+    <div class="small">CERAMIC WORKS</div>
+    <h2 class="section-title">セラミック技工</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTYyYmIwOTYwODE5MTgwN2Q5ZjY3Y2RlOWQwYzc6ZmlsZV8wMDAwMDAwMDBiNTQ3MjA5YWVlNWMyNmUwYWRhMDA4MiIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjMzNTZhZWVlM2VmNGY3Zjg3NjNhNzI3ZDgwMTY0MzY2ZjYzZTMxYzUxODBmMTFjZDdlZGM2MzBjNGQ3NTc0NDEiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>e.max</h3>
+                <p>
+                    高い透明感と自然な色調再現を実現。
+                    審美性に優れたセラミック技工です。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTY1YmI2MDhjODE5MWJhNTI0Y2FhNTk3ZDk5YTc6ZmlsZV8wMDAwMDAwMDk2YTg3MjA5OGQ0MWEwYzMyMTVmNTQ3NyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImViZjc5NTAyNjExYjM0OGYxYzcwYWNlOWNkMjk2MmEzMzBjNTYyNjllNGFlODRhNTllZGIxMTRiMTg5ZjgyOWYiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>ジルコニア</h3>
+                <p>
+                    強度と耐久性に優れ、
+                    ブリッジ症例にも対応可能です。
+                </p>
+            </div>
+        </div>
+<div class="small">DIGITAL TECHNICIAN</div>
+    <h2 class="section-title">デジタル技工</h2>
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTY2ZDI2YzNjODE5MTlkZWIxMDI1ZTRjZTZhMTI6ZmlsZV8wMDAwMDAwMDRkNzA3MjA5OWYyMzQyOWQxODQzZTUxMiIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImRiMTk1YWIwYTUxZDU5M2VlMTk4Zjc2NmYwMjlhOGRmYTA0OWJiZWNmZmJjZDYyOGFkMmI5OGZlMWYyOTQ3OGIiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>デジタル技工</h3>
+                <p>
+                    データ転送による効率的な技工を実現します。
+            
+                </p>
+            </div>
+        </div>
+        <div class="small">INSURANCE ENGINEER</div>
+    <h2 class="section-title">保険技工</h2>
+
+<div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTY4NzA1OTE0ODE5MWI4OTIyYjNkNDNmYWIwMmY6ZmlsZV8wMDAwMDAwMGViMjA3MjA5OTNmNzI4YzczNWY1ZGQzYyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImUzNzMyYzM0MDU4YjczZWY5M2I1Y2YyMzBjMjY1MjYxOGU4ZmExYmU2ODI0MjRlYzUzOWY1OTI4ZDc3ZTRmZDEiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>CAD/CAM冠</h3>
+                <p>
+                    模型・デジタルに対応、
+                    機能性を再現する形態と精密な適合性を実現します。
+                </p>
+            </div>
+        </div>
+        <div class="small">SHOREY SYU</div>
+    <h2 class="section-title">症例集</h2>
+
+    <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTgyYjc5ZjE4ODE5MWI5MzY2YzA4ZTZlMTdmOTk6ZmlsZV8wMDAwMDAwMDIzYzA3MjA3OTZhNTA0ZTEzMTViZGJkMyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImI2YmM4NmIzMjc1NzZiZGFhZGY1OTdlNDAyNWEwOWVjMWU0NjM2Y2VmZjRjZjhmYjkzODM0MjU5MzQ4MWM0YTgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3></h3>
+                <p>
+                </p>
+            </div>
+
+
+    </div>
+
+</section>
+<section class="light">
+
+    <div class="small">FLOW</div>
+    <h2 class="section-title">ご依頼の流れ</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-content">
+                <h3>01 ご相談・ご依頼</h3>
+                <p>
+                    お電話またはお問い合わせフォームより
+                    症例内容・納期などをご相談ください。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>02 技工物の製作</h3>
+                <p>
+                    症例に合わせて最適な素材・設計で
+                    精密な技工物を製作します。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h3>03 納品・調整対応</h3>
+                <p>
+                    医院様へ納品後も必要に応じて
+                    修正・調整対応を行います。
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="small">COMPANY</div>
+    <h2 class="section-title">会社紹介</h2>
+
+    <div class="card">
+
+        <div class="card-content">
+            <h3>株式会社アクアプラス</h3>
+
+            <p>
+                当社はセラミック技工・デジタル技工・保険技工を中心に、
+                歯科医院様と患者様の信頼に応える歯科技工所です。
+                精密性・審美性・耐久性を追求し、
+                より良い補綴物を提供いたします。
+            </p>
+
+            <br>
+
+            <p>
+                <strong>所在地：</strong> 愛知県〇〇市<br>
+                <strong>TEL：</strong> 000-000-0000<br>
+                <strong>営業時間：</strong> 9:00〜18:00
+            </p>
+
+        </div>
+    </div>
+
+</section>
+<section class="light">
+
+    <div class="small">LAB GALLERY</div>
+    <h2 class="section-title">ラボの様子</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTZkZWYyNjcwODE5MTkyZjlmMTlkNGQxOGE5Yzc6ZmlsZV8wMDAwMDAwMGM0ZGM3MjA5OWFiY2YyNGU4N2YzMDhiYSIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6Ijk2YWQ1M2U3ZTVhMTJiY2IyODQxZTUyMWVjMWNiZjdkZGE2MWIwMGRjNGE3NzhjNjI5MGZmN2JjZDA5YzcyNDciLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>作業風景</h3>
+
+                <p>
+                    精密な技工物を製作するため、
+                    一つひとつ丁寧な工程で製作を行っています。
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTZiOTE1YTM0ODE5MWFiZDVhOGVhZTQ1NDQwZDI6ZmlsZV8wMDAwMDAwMGNjNjg3MjA5YTQ4OGFlZDhkZWI2MzEwZCIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjkwZjJmNDgwMTZjNDdmZmI4NDc4ZTBmODBkZGI1ODk3Njc1ZDg3MzRhZmEwYzBjODczNjAyNmMwZDhmNWFkZjMiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+            <div class="card-content">
+                <h3>設備・機器</h3>
+
+                <p>
+                    デジタル技工機器や各種設備を導入し、
+                    精密性と品質向上に取り組んでいます。
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="light">
+
+    <div class="small">MESSAGE</div>
+    <h2 class="section-title">代表者メッセージ</h2>
+
+    <div class="card">
+
+        <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTZmOTVkNjY4ODE5MTlkMTdjYjY5OTUwODk2OWM6ZmlsZV8wMDAwMDAwMDgyNjA3MjA5YmFhNzQ2YjljN2FkNjZkZCIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjQwZjA0NjQ3YWEyNGMzYTE1Nzk2YzI0ZDk3NmE0YWY2NjhmMzc1Y2MwYmE2NWFkYjkwZjZlN2ViZDdiMzAyZTkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=">
+
+        <div class="card-content">
+
+            <h3>代表取締役 横川宏明</h3>
+
+            <p>
+                私たちアクアプラスは、
+単に技工物を製作するだけではなく、
+医院様と患者様の満足につながる歯科技工を大切にしています。
+
+審美性・適合性・耐久性にこだわり、
+一つひとつ丁寧に製作すること。
+
+そして、実際の臨床結果まで見据え、
+「合うまで対応する」姿勢を大切にしています。
+
+また、患者様が納得して治療を選べるよう、
+医院様向けの説明サポートにも力を入れています。
+
+これからも、美しさと機能性を両立した技工を通じて、
+信頼されるパートナーであり続けたいと考えています。
+            </p>
+
+            <p>
+                
+            </p>
+        </div>
+        
+    </div>
+
+</section>
+
+<section id="contact">
+
+    <div class="small">CONTACT</div>
+    <h2 class="section-title">お問い合わせ</h2>
+
+    <div class="card">
+
+        <div class="card-content">
+
+            <h3>お気軽にお問い合わせください</h3>
+
+            <p>
+                技工のご依頼・ご相談・納期確認など、
+                お気軽にお問い合わせください。
+            </p>
+
+            <br>
+
+            <p>
+                <strong>電話：</strong> 000-000-0000
+            </p>
+
+            <p>
+                <strong>所在地：</strong> 愛知県日進市赤池町屋下351-1(2F)
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="light" id="sns">
+
+    <div class="small">SNS</div>
+    <h2 class="section-title">公式SNS</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/2026-05-17.16-55-29.png" alt="Instagram QR">
+
+            <div class="card-content">
+                <h3>Instagram</h3>
+
+                <p>
+                    症例紹介やラボの日常、最新情報を発信しています。
+                </p>
+                <p>
+                    URL : https://www.instagram.com/aqapros?igsh=MTNmN2c5d2ZvN2I6eQ%3D%3D&utm_source=qr
+                </p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/2026-05-17.17-04-57.png" alt="YouTube QR">
+
+            <div class="card-content">
+                <h3>YouTube</h3>
+
+                <p>
+                    技工紹介や会社紹介動画などを公開しています。
+                </p>
+                <p>
+                   URL : https://www.youtube.com/@YushinTheBattleCats
+                </p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="x-qr.png" alt="X QR">
+
+            <div class="card-content">
+                <h3>X（旧Twitter）</h3>
+
+                <p>
+                    最新のお知らせや更新情報を発信しています。
+                </p>
+            </div>
+
+</section>
+<footer>
+    © 2026 AQUA PLUS
+</footer>
+
+</body>
+</html>
