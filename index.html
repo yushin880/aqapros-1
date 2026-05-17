@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <link rel="icon" href="https://github.com/yushin880/aqapros-1/releases/download/v1.0/210482962_324323732625878_2279903752040952574_n-removebg-preview.4.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>株式会社アクアプラス｜セラミック技工・歯科技工所</title>
@@ -323,55 +324,89 @@
       max-width: 760px;
       margin: 0 auto;
     }
+    /* ===== スクロールふわっとアニメ ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
     footer {
-      padding: 30px;
-      text-align: center;
-      color: #888;
-      font-size: 13px;
-      background: #fff;
-    }
+  padding: 30px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+  background: #fff;
+}
 
-    @media (max-width: 820px) {
-      nav {
-        display: none;
-      }
+/* ===== 日本語改行安定化（PCも含む） ===== */
+h1, h2, h3, p {
+  word-break: keep-all;
+  line-break: strict;
+}
 
-      .hero {
-        padding: 60px 0;
-      }
+/* ===== スマホ崩れ防止（全体共通） ===== */
+html, body {
+  overflow-x: hidden;
+}
 
-      .hero-grid,
-      .quality-grid,
-      .message-box {
-        grid-template-columns: 1fr;
-      }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-      .strength-grid,
-      .ceramic-grid {
-        grid-template-columns: 1fr;
-      }
+* {
+  overflow-wrap: anywhere;
+}
 
-      .before-after {
-        grid-template-columns: 1fr;
-      }
+/* ===== スマホ用レイアウト ===== */
+@media (max-width: 820px) {
 
-      .arrow {
-        transform: rotate(90deg);
-      }
+  nav {
+    display: none;
+  }
 
-      .case-text {
-        grid-template-columns: 1fr;
-      }
+  .hero {
+    padding: 60px 0;
+  }
 
-      .tags {
-        justify-content: flex-start;
-      }
+  .hero-grid,
+  .quality-grid,
+  .message-box {
+    grid-template-columns: 1fr;
+  }
 
-      .case-card {
-        padding: 22px;
-      }
-    }
+  .strength-grid,
+  .ceramic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .before-after {
+    grid-template-columns: 1fr;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+  }
+
+  .case-text {
+    grid-template-columns: 1fr;
+  }
+
+  .tags {
+    justify-content: flex-start;
+  }
+
+  .case-card {
+    padding: 22px;
+  }
+
+}
   </style>
 </head>
 
@@ -698,5 +733,24 @@
   © 2026 AQA Pros
 </footer>
 
+<script>
+  const targets = document.querySelectorAll(
+    'header, footer, section, .card, .btn, .message-box, nav a, img'
+  );
+
+  targets.forEach(el => el.classList.add('fade-up'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  targets.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
