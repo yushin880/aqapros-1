@@ -1,1 +1,2 @@
-aaaaaaaaaaaaaaaaa
+アクアプラス(aqapros)です！
+英語のprosプラスは間違ってないです
