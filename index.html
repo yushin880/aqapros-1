@@ -40,6 +40,7 @@
       text-decoration: none;
       color: inherit;
     }
+    
 
     .container {
       width: min(1120px, 92%);
@@ -364,6 +365,67 @@ img {
   overflow-wrap: anywhere;
 }
 
+/* ===== 症例フェード切替（崩れない版）===== */
+
+.fade-switch {
+  display: flex;
+  justify-content: center;
+}
+
+.photo-box {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #f7f7f7;
+}
+
+/* ラベル */
+.switch-label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 5;
+
+  background: rgba(255,255,255,.9);
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 画像 */
+.switch-img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+}
+
+/* 表示中 */
+.switch-img.active {
+  opacity: 1;
+}
+
+/* スマホ */
+@media (max-width: 820px) {
+  .photo-box {
+    border-radius: 18px;
+  }
+
+  .switch-img {
+    border-radius: 18px;
+  }
+}
+
 /* ===== スマホ用レイアウト ===== */
 @media (max-width: 820px) {
 
@@ -371,23 +433,30 @@ img {
     display: none;
   }
 
+  /* 余白削減 → スクロール量減＝体感高速化 */
   .hero {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
+  /* GPU負荷軽減（重要） */
   .hero-grid,
   .quality-grid,
   .message-box {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 
+  /* カードは1列維持（読みやすさ優先） */
   .strength-grid,
   .ceramic-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
+  /* 画像切替は軽くする */
   .before-after {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .arrow {
@@ -396,14 +465,21 @@ img {
 
   .case-text {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .tags {
     justify-content: flex-start;
+    flex-wrap: wrap;
   }
 
   .case-card {
-    padding: 22px;
+    padding: 16px;
+  }
+
+  /* 重要：再描画軽減（地味に効く） */
+  img {
+    will-change: auto;
   }
 
 }
@@ -512,21 +588,32 @@ img {
 
     <div class="case-list">
 
+      <!-- CASE 01 -->
       <article class="case-card">
         <div class="case-title">
           <div class="case-no">CASE<br>01</div>
           <h3>銀歯を自然なセラミックへ</h3>
         </div>
 
-        <div class="before-after">
-          <div>
-            <div class="photo-label">Before</div>
-            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOWFmZmEyMzhjODE5MTk1YzkxMmVlYTQ0MDQ2NjM6ZmlsZV8wMDAwMDAwMDUyZTQ3MjA5OTU2NGI2NWNiNDA5MzdmMCIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImVjMzFjN2NiMjY2OTkzZjZkNDk3NjUyZDBmYWQzMTQzNTVlNGFmZjU5YmM4ODc1ZjNiYjU3ZjJiOWQ2NTIxNWEiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=" alt="症例01 Before">
-          </div>
-          <div class="arrow">▶</div>
-          <div>
-            <div class="photo-label">After</div>
-            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOWI0NDkxNjc0ODE5MWE4ZjQzYjVlNzhkZTgyMjI6ZmlsZV8wMDAwMDAwMDNlNDQ3MjA5ODJkNWY0ZTQ5NGY2MjZmNyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjM2NTg0NGY1NmYzYWYzZDRlMDFjZmVjYmZlMTY4N2NlYzVhMmJhYTcyOGJjMTY0Zjk3YThlOTQ2ZDRjY2M0MzciLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=" alt="症例01 After">
+        <div class="before-after fade-switch">
+          <div class="photo-box">
+
+            <div class="photo-label switch-label">
+              Before
+            </div>
+
+            <img
+              class="switch-img active"
+              src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOWFmZmEyMzhjODE5MTk1YzkxMmVlYTQ0MDQ2NjM6ZmlsZV8wMDAwMDAwMDUyZTQ3MjA5OTU2NGI2NWNiNDA5MzdmMCIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImVjMzFjN2NiMjY2OTkzZjZkNDk3NjUyZDBmYWQzMTQzNTVlNGFmZjU5YmM4ODc1ZjNiYjU3ZjJiOWQ2NTIxNWEiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0="
+              alt="症例01 Before"
+            >
+
+            <img
+              class="switch-img"
+              src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOWI0NDkxNjc0ODE5MWE4ZjQzYjVlNzhkZTgyMjI6ZmlsZV8wMDAwMDAwMDNlNDQ3MjA5ODJkNWY0ZTQ5NGY2MjZmNyIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjM2NTg0NGY1NmYzYWYzZDRlMDFjZmVjYmZlMTY4N2NlYzVhMmJhYTcyOGJjMTY0Zjk3YThlOTQ2ZDRjY2M0MzciLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0="
+              alt="症例01 After"
+            >
+
           </div>
         </div>
 
@@ -543,28 +630,47 @@ img {
         </div>
       </article>
 
+
+      <!-- CASE 02 -->
       <article class="case-card">
         <div class="case-title">
-          <div class="case-no" style="background:var(--main)">CASE<br>02</div>
-          <h3>ジルコニアクラウンにより嚙み合わせと審美性を改善した症例</h3>
+          <div class="case-no" style="background:var(--main)">
+            CASE<br>02
+          </div>
+          <h3>
+            ジルコニアクラウンにより嚙み合わせと
+            審美性を改善した症例
+          </h3>
         </div>
 
-        <div class="before-after">
-          <div>
-            <div class="photo-label">Before</div>
-            <img src="images/case02-before.jpg" alt="症例02 Before">
-          </div>
-          <div class="arrow" style="color:var(--main)">▶</div>
-          <div>
-            <div class="photo-label">After</div>
-            <img src="images/case02-after.jpg" alt="症例02 After">
+        <div class="before-after fade-switch">
+          <div class="photo-box">
+
+            <div class="photo-label switch-label">
+              Before
+            </div>
+
+            <img
+              class="switch-img active"
+              src="images/case02-before.jpg"
+              alt="症例02 Before"
+            >
+
+            <img
+              class="switch-img"
+              src="images/case02-after.jpg"
+              alt="症例02 After"
+            >
+
           </div>
         </div>
 
         <div class="case-text">
           <p>
-   天然歯の美しさをレイヤリングテクニックにより再現します。
+            天然歯の美しさを
+            レイヤリングテクニックにより再現します。
           </p>
+
           <div class="tags">
             <span class="tag">ジルコニアクラウン</span>
             <span class="tag">清掃性</span>
@@ -573,23 +679,38 @@ img {
         </div>
       </article>
 
+
+      <!-- CASE 03 -->
       <article class="case-card">
         <div class="case-title">
-          <div class="case-no" style="background:var(--gold)">CASE<br>03</div>
-          <h3>プレミアムセラミックによる高度審美症例
+          <div class="case-no" style="background:var(--gold)">
+            CASE<br>03
+          </div>
 
+          <h3>
+            プレミアムセラミックによる高度審美症例
           </h3>
         </div>
 
-        <div class="before-after">
-          <div>
-            <div class="photo-label">Before</div>
-            <img src="images/case03-before.jpg" alt="症例03 Before">
-          </div>
-          <div class="arrow" style="color:var(--gold)">▶</div>
-          <div>
-            <div class="photo-label">After</div>
-            <img src="images/case03-after.jpg" alt="症例03 After">
+        <div class="before-after fade-switch">
+          <div class="photo-box">
+
+            <div class="photo-label switch-label">
+              Before
+            </div>
+
+            <img
+              class="switch-img active"
+              src="images/case03-before.jpg"
+              alt="症例03 Before"
+            >
+
+            <img
+              class="switch-img"
+              src="images/case03-after.jpg"
+              alt="症例03 After"
+            >
+
           </div>
         </div>
 
@@ -734,6 +855,8 @@ img {
 </footer>
 
 <script>
+  /* ===== スクロールふわっとアニメ ===== */
+
   const targets = document.querySelectorAll(
     'header, footer, section, .card, .btn, .message-box, nav a, img'
   );
@@ -751,6 +874,70 @@ img {
   });
 
   targets.forEach(el => observer.observe(el));
+
+
+  /* ===== 症例画像フェード切替（永久ループ）===== */
+
+  window.addEventListener('load', () => {
+
+    document.querySelectorAll('.fade-switch').forEach(box => {
+
+      const images =
+        box.querySelectorAll('.switch-img');
+
+      const label =
+        box.querySelector('.switch-label');
+
+      /* 画像2枚ないなら終了 */
+      if (images.length < 2) return;
+
+      let current = 0;
+
+      /* 初期状態 */
+      images.forEach((img, index) => {
+
+        img.style.position = 'absolute';
+        img.style.inset = '0';
+
+        img.style.width = '100%';
+        img.style.height = '100%';
+
+        img.style.objectFit = 'cover';
+
+        img.style.transition =
+          'opacity 1.8s ease-in-out';
+
+        img.style.opacity =
+          index === 0 ? '1' : '0';
+      });
+
+      /* 無限ループ */
+      setInterval(() => {
+
+        const next =
+          (current + 1) % images.length;
+
+        /* フェード切替 */
+        images[current].style.opacity = '0';
+        images[next].style.opacity = '1';
+
+        current = next;
+
+        /* Before / After 表示 */
+        if (label) {
+          label.textContent =
+            current === 0
+              ? 'Before'
+              : 'After';
+        }
+
+      }, 3000);
+
+    });
+
+  });
 </script>
+
+
 </body>
 </html>
