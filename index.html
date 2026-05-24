@@ -78,6 +78,10 @@ body {
   object-fit: contain;
   border-radius: 0;
   display: block;
+
+  /* ↓追加 */
+  filter: drop-shadow(0 0 5px #fff)
+          drop-shadow(0 0 10px #fff);
 }
     nav {
       display: flex;
@@ -735,6 +739,10 @@ img {
   margin: auto;
   display: block;
   border-radius: 0;
+
+  /* ↓追加 */
+  filter: drop-shadow(0 0 2px #fff)
+          drop-shadow(0 0 2px #fff);
 }
 
 .hero-address {
@@ -994,6 +1002,75 @@ img {
   }
 
 }
+.section-divider {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.section-divider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255, 255, 255, 0.8) 70%,
+    #fff 100%
+  );
+}
+
+.divider-copy {
+  position: absolute;
+  top: 40px;
+  right: 10%;
+  text-align: center;
+}
+
+.divider-copy .jp {
+  font-size: 28px;
+  letter-spacing: 0.4em;
+  font-family: serif;
+}
+
+.divider-copy .en {
+  font-size: 12px;
+  letter-spacing: 0.6em;
+  color: #c7a76c;
+}
+
+.divider-title {
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+}
+
+.divider-title h2 {
+  font-size: 90px;
+  font-family: serif;
+  font-weight: 400;
+
+    color: #fff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.divider-title p {
+  font-size: 16px;
+  letter-spacing: 0.2em;
+}
+.divider-title .title-line {
+  display: block;
+  width: 420px;   /* ←線の長さ */
+  height: 3px;    /* ←線の太さ */
+  background: #000000; /* ←白線 */
+
+  margin-top: -2px; /* 文字との距離 */
+}
   </style>
 </head>
 
@@ -1025,7 +1102,7 @@ img {
 
   <img
     class="hero-slide active"
-    src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/naisoukari.png"
+    src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/ChatGPT.Image.2026.5.20.08_04_15.png"
     alt="内装"
   >
 
@@ -1033,30 +1110,6 @@ img {
     class="hero-slide"
     src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/ChatGPT.Image.2026.5.24.08_47_47.png"
     alt="外装"
-  >
-
-    <img
-    class="hero-slide active"
-    src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/IMG_202605210802120.PNG"
-    alt="看板"
-  >
-
-      <img
-    class="hero-slide active"
-    src="https://github.com/yushin880/aqapros-1/releases/download/v1.1/39FD66BE-990C-4F67-BB63-4D900523B64F.png"
-    alt="手元"
-  >
-
-      <img
-    class="hero-slide active"
-    src="https://github.com/yushin880/aqapros-1/releases/download/v1.1/8AB8E921-DEEE-4161-9B86-B0A7A11D3243.png"
-    alt="技工物"
-  >
-
-      <img
-    class="hero-slide active"
-    src="https://github.com/yushin880/aqapros-1/releases/download/v1.1/9D53358F-9819-4F17-A991-31A86AB2C010.png"
-    alt="口元"
   >
 
 </div>
@@ -1113,7 +1166,20 @@ img {
 
   </div>
 </section>
+<div class="section-divider">
+  <img src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/ChatGPT.Image.2026.5.24.08_47_47.png">
 
+  <div class="divider-copy">
+    <div class="jp">しっかり聞ける</div>
+    <div class="en">LISTEN KINDLY</div>
+  </div>
+
+  <div class="divider-title">
+    <h2>Concept.</h2>
+    <span class="title-line"></span>
+    <p>アクアプラスの想い</p>
+  </div>
+</div>
 <section id="concept" class="concept">
   <div class="container">
     <div class="section-head">
@@ -1190,7 +1256,20 @@ img {
     </div>
   </div>
 </section>
+<div class="section-divider">
+  <img src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/ChatGPT.Image.2026.5.24.08_47_47.png">
 
+  <div class="divider-copy">
+    <div class="jp">しっかり聞ける</div>
+    <div class="en">LISTEN KINDLY</div>
+  </div>
+
+  <div class="divider-title">
+    <h2>Case Photos.</h2>
+    <span class="title-line"></span>
+    <p>アクアプラスの想い</p>
+  </div>
+</div>
 <section id="case" class="case">
   <div class="container">
     <div class="section-head">
