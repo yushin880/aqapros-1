@@ -643,6 +643,357 @@ img {
   }
 
 }
+/* ===== 高級クリニック風トップ ===== */
+
+.hero-modern {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* 背景画像 */
+/* ===== TOP背景フェード ===== */
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  border-radius:0;
+
+  opacity:0;
+
+  transition:
+    opacity 2.2s ease-in-out,
+    transform 8s ease;
+
+  transform:scale(1.03);
+}
+
+
+/* 白透明感 */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,.28),
+      rgba(255,255,255,.08)
+    );
+
+  backdrop-filter: blur(.8px);
+}
+
+/* 全体 */
+.hero-wrap {
+  position: relative;
+  z-index: 2;
+
+  width: min(1300px, 92%);
+  margin: auto;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* 左透明パネル */
+.hero-card {
+  width: 360px;
+
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 9px;
+
+  padding: 42px 36px;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.18);
+
+  color: white;
+}
+
+.hero-logo {
+  width: 400px;
+  margin: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.hero-address {
+  text-align: center;
+  margin-top: 20px;
+  line-height: 2;
+  color: rgba(255,255,255,.9);
+}
+
+.hero-tel {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 28px 0;
+}
+
+/* ボタン */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-buttons a {
+  padding: 18px;
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+
+  color: white;
+  font-weight: 700;
+
+  transition: .3s;
+}
+
+.hero-buttons a:hover {
+  background: rgba(255,255,255,.2);
+}
+
+/* 右文字 */
+.hero-copy {
+  color: white;
+  text-align: right;
+}
+
+.hero-copy .label {
+  color: rgba(255,255,255,.8);
+}
+
+.hero-copy h1 {
+  font-family: serif;
+  font-size: clamp(34px, 4vw, 68px);
+  font-weight: 400;
+  line-height: 1.5;
+
+  color: rgba(255,255,255,.95);
+
+  text-shadow:
+    0 4px 18px rgba(0,0,0,.12);
+}
+
+.hero-copy p {
+  font-size: 24px;
+  line-height: 2;
+  color: rgba(255,255,255,.9);
+}
+
+/* スマホ */
+@media(max-width:900px){
+
+  .hero-wrap {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 0 60px;
+  }
+
+  .hero-card {
+    width: 100%;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy h1 {
+    font-size: 44px;
+  }
+
+  .hero-copy p {
+    font-size: 18px;
+  }
+}
+/* ===== MESSAGE 高級クリニック風 ===== */
+
+.message-modern{
+  position: relative;
+  overflow: hidden;
+  background:#111;
+  padding:0;
+}
+
+/* TOPと同じ背景 */
+.message-bg{
+  position:absolute;
+  inset:0;
+}
+
+.message-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:0;
+  transform:scale(1.03);
+}
+
+/* 黒透明65% */
+.message-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,.65),
+      rgba(0,0,0,.65)
+    );
+}
+
+/* 本体 */
+.message-wrap{
+  position:relative;
+  z-index:2;
+
+  display:grid;
+
+  /* 完全2分割 */
+  grid-template-columns: 1fr 1fr;
+
+  width:100%;
+  min-height:100vh;
+
+  gap:0;
+}
+
+/* 左人物画像 */
+.message-photo{
+  height:100vh;
+}
+
+.message-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:0;
+}
+
+/* 右文字 */
+.message-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  padding:8vw;
+
+  color:white;
+}
+
+.message-content h2{
+  font-family:serif;
+  font-size:clamp(44px,4vw,72px);
+  line-height:1.5;
+  font-weight:400;
+  margin-bottom:40px;
+  color:white;
+}
+
+.director{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:36px;
+}
+
+.director span{
+  font-size:15px;
+  opacity:.8;
+}
+
+.director strong{
+  font-size:40px;
+  font-family:serif;
+  font-weight:400;
+}
+
+.message-content p{
+  font-size:18px;
+  line-height:2.2;
+  color:rgba(255,255,255,.92);
+}
+
+/* 動画 */
+.message-video-wrap{
+  position:relative;
+  z-index:2;
+
+  max-width:1000px;
+  margin:80px auto;
+  text-align:center;
+}
+
+.message-video-wrap h3{
+  color:white;
+  font-size:32px;
+  margin-bottom:24px;
+  font-family:serif;
+}
+
+.message-video{
+  width:100%;
+  border-radius:28px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.25);
+}
+
+/* スマホ */
+@media(max-width:900px){
+
+  .message-wrap{
+    grid-template-columns:1fr;
+    min-height:auto;
+    gap:0;
+  }
+
+  .message-photo{
+    height:460px;
+  }
+
+  .message-photo img{
+    height:100%;
+  }
+
+  .message-content{
+    padding:50px 24px 30px;
+  }
+
+  .message-content h2{
+    font-size:42px;
+  }
+
+  .director strong{
+    font-size:28px;
+  }
+
+}
   </style>
 </head>
 
@@ -667,24 +1018,75 @@ img {
 
 <main>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="label">DENTAL CERAMIC LABORATORY</div>
-      <h1>美しさと機能性を、<br>その先の信頼へ。</h1>
-      <p class="lead">
-        株式会社アクアプラスは、セラミック技工を通じて、
-        医院様と患者様の満足度向上を支える歯科技工所です。
+<section class="hero-modern">
+
+  <!-- 背景 -->
+<div class="hero-bg hero-slider">
+
+  <img
+    class="hero-slide active"
+    src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/ChatGPT.Image.2026.5.24.09_00_13.png"
+    alt="背景1"
+  >
+
+  <img
+    class="hero-slide"
+    src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/ChatGPT.Image.2026.5.24.08_47_47.png"
+    alt="背景2"
+  >
+
+</div>
+
+  <!-- 透明オーバーレイ -->
+  <div class="hero-overlay"></div>
+
+  <div class="hero-wrap">
+
+    <!-- 左透明パネル -->
+    <div class="hero-card">
+
+      <img
+        src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/IMG_9581.PNG"
+        alt="AQUA PLUS"
+        class="hero-logo"
+      >
+
+      <p class="hero-address">
+        〒470-0126<br>
+        愛知県日進市赤池町屋下351-1 2F
       </p>
-      <div class="btns">
-        <a href="#case" class="btn">症例を見る</a>
-        <a href="#contact" class="btn sub">相談する</a>
+
+      <div class="hero-tel">
+        ☎ 052-801-4182
       </div>
+
+      <div class="hero-buttons">
+        <a href="#case">症例を見る</a>
+        <a href="#contact">相談する</a>
+      </div>
+
     </div>
 
-    <div>
-      <img src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/IMG_202605210802120.PNG" alt="セラミック症例イメージ">
+    <!-- 右文字 -->
+    <div class="hero-copy">
+
+      <div class="label">
+        DENTAL CERAMIC LABORATORY
+      </div>
+
+      <h1>
+        美しさと機能性を、<br>
+        その先の信頼へ。
+      </h1>
+
+      <p>
+        株式会社アクアプラスは、<br>
+        セラミック技工を通じて、<br>
+        医院様と患者様の満足度向上を支える歯科技工所です。
+      </p>
+
     </div>
+
   </div>
 </section>
 
@@ -995,58 +1397,73 @@ img {
   </div>
 </section>
 
-<section id="message">
-  <div class="container">
-    <div class="section-head">
-      <span>MESSAGE</span>
-      <h2>代表者メッセージ</h2>
-    </div>
+<section id="message" class="message-modern">
 
-    <div class="message-box">
-      <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTZmOTVkNjY4ODE5MTlkMTdjYjY5OTUwODk2OWM6ZmlsZV8wMDAwMDAwMDgyNjA3MjA5YmFhNzQ2YjljN2FkNjZkZCIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjQwZjA0NjQ3YWEyNGMzYTE1Nzk2YzI0ZDk3NmE0YWY2NjhmMzc1Y2MwYmE2NWFkYjkwZjZlN2ViZDdiMzAyZTkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=" alt="代表 横川宏明">
-      <div>
-        <h3>代表取締役　横川宏明</h3>
-        <p>
-          私たちアクアプラスは、単に技工物を製作するだけではなく、
-          医院様と患者様の満足につながる歯科技工を大切にしています。
-          審美性・適合性・耐久性にこだわり、一つひとつ丁寧に製作すること。
-          そして、実際の臨床結果まで見据え、合うまで対応する姿勢を大切にしています。
-        </p>
-      </div>
-    </div>
+  <!-- 背景 -->
+  <div class="message-bg">
+    <img src="https://www.k-greenbox.co.jp/wp-content/uploads/2024/04/IMG_7988-scaled.jpg" alt="代表メッセージ背景">
   </div>
-  <!-- 動画セクション -->
-<div style="
-  max-width: 900px;
-  margin: 50px auto 0;
-  text-align: center;
-">
 
-  <h3 style="
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-family: serif;
-  ">
-    紹介動画
-  </h3>
+  <div class="message-overlay"></div>
 
-  <video
-    controls
-    autoplay
-    muted
-    loop
-    playsinline
-    style="
-      width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.08);
-    "
-  >
-    <source src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/qws.mp4" type="video/mp4">
-    お使いのブラウザは動画に対応していません。
-  </video>
+  <div class="message-wrap">
 
-</div>
+    <!-- 左画像 -->
+    <div class="message-photo">
+      <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNmEwOTZmOTVkNjY4ODE5MTlkMTdjYjY5OTUwODk2OWM6ZmlsZV8wMDAwMDAwMDgyNjA3MjA5YmFhNzQ2YjljN2FkNjZkZCIsInRzIjoiMjA1OTAiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjQwZjA0NjQ3YWEyNGMzYTE1Nzk2YzI0ZDk3NmE0YWY2NjhmMzc1Y2MwYmE2NWFkYjkwZjZlN2ViZDdiMzAyZTkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJmbiI6bnVsbCwiY2QiOm51bGwsImNwIjpudWxsLCJtYSI6bnVsbH0=" alt="代表者">
+    </div>
+
+    <!-- 右文章 -->
+    <div class="message-content">
+
+      <div class="message-label">
+        MESSAGE
+      </div>
+
+      <h2>
+        美しさと機能性を、<br>
+        その先の信頼へ。
+      </h2>
+
+      <div class="director">
+        <span>代表取締役</span>
+        <strong>横川 宏明</strong>
+      </div>
+
+      <p>
+        私たちアクアプラスは、単に技工物を製作するだけではなく、
+        医院様と患者様の満足につながる歯科技工を大切にしています。
+      </p>
+
+      <p>
+        審美性・適合性・耐久性にこだわり、
+        一つひとつ丁寧に製作すること。
+        そして実際の臨床結果まで見据え、
+        合うまで対応する姿勢を大切にしています。
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- 動画 -->
+  <div class="message-video-wrap">
+
+    <h3>紹介動画</h3>
+
+    <video
+      controls
+      autoplay
+      muted
+      loop
+      playsinline
+      class="message-video"
+    >
+      <source src="https://github.com/yushin880/aqapros-1/releases/download/v1.0/qws.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
 </section>
 
 <section id="contact" class="contact">
@@ -1186,6 +1603,42 @@ img {
     });
 
   });
+
+  /* ===== TOP背景フェード（永久ループ）===== */
+
+window.addEventListener('load', () => {
+
+  const heroSlides =
+    document.querySelectorAll('.hero-slide');
+
+  if(heroSlides.length < 2) return;
+
+  let current = 0;
+
+  /* 初期状態 */
+  heroSlides.forEach((slide, index) => {
+
+    slide.style.opacity =
+      index === 0 ? '1' : '0';
+
+  });
+
+  /* 永久ループ */
+  setInterval(() => {
+
+    const next =
+      (current + 1) % heroSlides.length;
+
+    /* フェード切替 */
+    heroSlides[current].style.opacity = '0';
+
+    heroSlides[next].style.opacity = '1';
+
+    current = next;
+
+  }, 5000);
+
+});
 </script>
 
 
